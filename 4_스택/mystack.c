@@ -18,11 +18,16 @@ int pop();
 int peek();
 
 int main() {
-    printf("hello");
+    push(1);
+    push(2);
+    push(3);
+    printf("%d\n", pop());
+    printf("%d\n", pop());
+    printf("%d\n", pop());
 }
 
 int is_full() {
-    if (top == STACK_MAX - 1)
+    if (top >= STACK_MAX - 1)
         return 1;
     else
         return 0;
@@ -44,8 +49,7 @@ int pop() {
     if (is_empty())
         return -1;
     else
-        stack[top--] = 0;
-    return stack[top];
+        return stack[top--];
 }
 int peek() {
     if (is_empty())
